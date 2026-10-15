@@ -1,31 +1,138 @@
 aid: allmodels
+
 name: Allmodels
-description: 'Allmodels is a company surfaced via the API Evangelist harvest backlog (source: new-submission)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://allmodels.io/assets/og/allmodels-social-pixels-v1.png
+
+description: Allmodels provides a unified API that routes text‑to‑speech, speech‑to‑text, and real‑time voice models from multiple providers.
+  Users can compare latency, pricing, and capabilities across models, enabling seamless integration of voice AI into applications. The platform
+  offers a single endpoint for TTS, STT, and streaming voice, simplifying development and reducing vendor lock‑in.
+
 url: https://raw.githubusercontent.com/api-evangelist/allmodels/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:new-submission
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-15 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-15'
+
 modified: '2026-10-15'
+
 tags:
 - Company
-apis: []
+- VoiceAI
+- TextToSpeech
+- SpeechToText
+- RealTime
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Plans
+  url: plans/allmodels-plans-pricing.yml
+- type: Spectral
+  url: rules/allmodels-rules.yml
+- type: JSONLD
+  url: json-ld/allmodels-context.jsonld
+- type: Vocabulary
+  url: vocabulary/allmodels-vocabulary.yml
+- type: DataModel
+  url: data-model/allmodels-data-model.yml
+- type: Conventions
+  url: conventions/allmodels-conventions.yml
+- type: Authentication
+  url: authentication/allmodels-authentication.yml
+- type: Conformance
+  url: conformance/allmodels-conformance.yml
+- type: LLMsTxt
+  url: llms/allmodels-llms.txt
+- type: WellKnown
+  url: well-known/allmodels-well-known.yml
+- type: Hosts
+  url: hosts/allmodels-hosts.yml
+- type: Vendors
+  url: vendors/allmodels-vendors.yml
+- type: TermsOfService
+  url: https://allmodels.io/terms
+- type: Sandbox
+  url: https://allmodels.io/playground
+- type: PrivacyPolicy
+  url: https://allmodels.io/privacy
+- type: Pricing
+  url: https://allmodels.io/pricing
+- type: APIReference
+  url: https://allmodels.io/docs/api-reference
+- type: DomainSecurity
+  url: security/allmodels-domain-security.yml
 - type: Website
   url: https://allmodels.io
 - type: Documentation
   url: https://allmodels.io/docs
-x-submission-notes: 'Unified TTS/STT/realtime voice API across providers; OpenAPI + AsyncAPI | Kin approved
-  listing 2026-10-15 (case-by-case: Resale/routing of other providers'' voice models (OpenRouter-style);
-  real OpenAPI+AsyncAPI, so a Kin call; root soft-200s)'
-x-submission-probe: root 200, docs 200, openapi.yaml 200 (357KB), soft-404 FAIL (unknown path 200 SPA
-  shell)
+
+apis:
+- aid: allmodels:allmodels-api
+  name: Allmodels API
+  description: 'Allmodels API as documented publicly: 11 operations. Contract generated from the documentation by API Evangelist (2026-10-15);
+    not the provider''s own document.'
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/allmodels-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+
+x-submission-notes: 'Unified TTS/STT/realtime voice API across providers; OpenAPI + AsyncAPI | Kin approved listing 2026-10-15 (case-by-case:
+  Resale/routing of other providers'' voice models (OpenRouter-style); real OpenAPI+AsyncAPI, so a Kin call; root soft-200s)'
+
+x-submission-probe: root 200, docs 200, openapi.yaml 200 (357KB), soft-404 FAIL (unknown path 200 SPA shell)
+
 x-submitted-by: moe@allmodels.io (apis.io/add, 2026-10-15)
+
+x-coverage:
+  state: gated
+  reason: partner-login
+  method: derived
+  generated: '2026-10-15'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: >-
+    the company serves an API surface but requires credentials before any description of it can be read
+  evidence:
+  - url: https://api.allmodels.io/openapi.yaml
+    status: null
+  - url: https://api.allmodels.io/asyncapi.yaml
+    status: null
+  - url: https://docs.allmodels.io/asyncapi.yaml
+    status: null
+  - url: https://docs.allmodels.io/mcp
+    status: null
+  - url: https://dash.allmodels.io/mcp
+    status: 403
+  - url: https://api.allmodels.io/mcp
+    status: 401
+x-enrichment:
+  date: '2026-10-15'
+  status: enriched
+  artifacts_added: 24
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

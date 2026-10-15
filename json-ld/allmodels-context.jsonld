@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@vocab": "https://allmodels.io/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "allmodels": "https://allmodels.io/schema#",
+    "GetHealthResponse": "allmodels:GetHealthResponse",
+    "ok": {
+      "@id": "allmodels:ok",
+      "@type": "xsd:boolean"
+    },
+    "commit": {
+      "@id": "allmodels:commit",
+      "@type": "xsd:string"
+    },
+    "PostOaiAudioAudioidRequest": "allmodels:PostOaiAudioAudioidRequest",
+    "model": {
+      "@id": "allmodels:model",
+      "@type": "xsd:string"
+    },
+    "voice": {
+      "@id": "allmodels:voice",
+      "@type": "xsd:string"
+    },
+    "input": {
+      "@id": "allmodels:input",
+      "@type": "xsd:string"
+    },
+    "response_format": {
+      "@id": "allmodels:response_format",
+      "@type": "xsd:string"
+    },
+    "stream_format": {
+      "@id": "allmodels:stream_format",
+      "@type": "xsd:string"
+    },
+    "PostOaiAudioAudioidResponse": "allmodels:PostOaiAudioAudioidResponse",
+    "PostV1CustomVoicesResponse": "allmodels:PostV1CustomVoicesResponse",
+    "providers": {
+      "@id": "allmodels:providers",
+      "@container": "@list"
+    },
+    "GetV1CustomVoicesAmNarratorResponse": "allmodels:GetV1CustomVoicesAmNarratorResponse",
+    "id": {
+      "@id": "allmodels:id",
+      "@type": "xsd:string"
+    },
+    "voices": {
+      "@id": "allmodels:voices",
+      "@container": "@list"
+    },
+    "GetV1V1IdResponse": "allmodels:GetV1V1IdResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Allmodels API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Allmodels's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-15) from openapi/_ae-authored/allmodels-openapi-generated.yml.",
+  "dcterms:created": "2026-10-15",
+  "dcterms:source": [
+    "openapi/_ae-authored/allmodels-openapi-generated.yml"
+  ]
+}

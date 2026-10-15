@@ -1,0 +1,19 @@
+generated: '2026-10-15'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://allmodels.io/docs/authentication
+sources:
+- https://allmodels.io/docs/authentication
+- https://allmodels.io/docs/api-reference/account/startAgentSignup
+- https://allmodels.io/docs
+- https://allmodels.io/docs/agentic-setup
+description: AllModels uses a single API key that is sent as a Bearer token in the Authorization header.
+schemes:
+- type: http-bearer
+  name: AllModels API key
+  evidence: Send your AllModels API key as a Bearer token.
+  location: header
+  header: Authorization
+  how_to_obtain: Obtain the API key by completing the email‑based sign‑up flow (POST /account/agent-signup and POST /account/agent-signup/verify)
+    which returns the AllModels API key.
+docs: https://allmodels.io/docs/authentication

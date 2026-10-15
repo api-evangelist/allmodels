@@ -1,0 +1,24 @@
+generated: '2026-10-15'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://allmodels.io/docs
+sources:
+- https://allmodels.io/docs
+- https://allmodels.io/docs/agentic-setup
+- https://allmodels.io/docs/authentication
+- https://allmodels.io/docs/api-reference/account/startAgentSignup
+idempotency:
+  coverage: none
+  evidence: The documentation does not describe any idempotency key or mechanism.
+pagination:
+  style: cursor
+  params:
+  - cursor
+  - limit
+  response_fields:
+  - cursor
+  - next_cursor
+  evidence: Discovery endpoints use cursor pagination (e.g., /v1/voices) with search, filters, facets, timestamps, and cursor pagination.
+error_envelope: 'Errors are returned as JSON objects with an "error" field containing a string message (e.g., { "error": "invalid_request" }).'
+authentication: 'Send the AllModels API key as a Bearer token in the Authorization header (e.g., Authorization: Bearer <API_KEY>).'
+docs: https://allmodels.io/docs

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/allmodels/main/json-schema/allmodels-post-oai-audio-audioid-response-schema.json",
+  "title": "PostOaiAudioAudioidResponse",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/allmodels-openapi-generated.yml#/components/schemas/PostOaiAudioAudioidResponse",
+  "type": "object",
+  "properties": {
+    "200": {
+      "type": "string",
+      "description": "Audio bytes of the generated speech."
+    },
+    "400": {
+      "type": "string",
+      "description": "Error response."
+    },
+    "401": {
+      "type": "string",
+      "description": "Error response."
+    },
+    "402": {
+      "type": "string",
+      "description": "Error response."
+    },
+    "403": {
+      "type": "string",
+      "description": "Error response."
+    },
+    "422": {
+      "type": "string",
+      "description": "Error response."
+    },
+    "502": {
+      "type": "string",
+      "description": "Error response."
+    }
+  }
+}

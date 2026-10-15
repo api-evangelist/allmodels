@@ -1,0 +1,17 @@
+# AllModels
+
+> AllModels provides one API for text-to-speech, speech-to-text, and realtime voice models across multiple providers.
+
+Use the Markdown guides below for concise, code-first instructions. Each guide links to its canonical HTML page, compatible SDK documentation, model catalogue, and voice list.
+
+## Voice provider migration guides
+
+- [How to Switch from OpenAI Voice to ElevenLabs](https://allmodels.io/guides/how-to-switch-from-openai-voice-to-elevenlabs.md): Switch OpenAI text-to-speech to ElevenLabs without replacing the OpenAI SDK. Change the base URL, API key, model, and voice with AllModels.
+- [How to Switch from OpenAI Voice to Fish Audio](https://allmodels.io/guides/how-to-switch-from-openai-voice-to-fish-audio.md): Switch OpenAI text-to-speech to Fish Audio while keeping the OpenAI SDK. Point it at AllModels, then change the model and voice.
+- [How to Switch from ElevenLabs to Fish Audio](https://allmodels.io/guides/how-to-switch-from-elevenlabs-to-fish-audio.md): Switch ElevenLabs text-to-speech to Fish Audio without replacing the ElevenLabs SDK. Change the base URL, API key, model, and voice with AllModels.
+- [How to Switch from ElevenLabs to Cartesia](https://allmodels.io/guides/how-to-switch-from-elevenlabs-to-cartesia.md): Switch ElevenLabs text-to-speech to Cartesia while keeping the ElevenLabs SDK. Point it at AllModels, then change the model and voice.
+
+## Documentation
+
+- [AllModels documentation](https://allmodels.io/docs): API setup, SDK compatibility, supported methods, and current limitations.
+- [Voice model catalogue](https://allmodels.io/models): Browse supported voice AI models and providers.

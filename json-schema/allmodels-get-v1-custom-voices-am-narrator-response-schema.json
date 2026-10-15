@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/allmodels/main/json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json",
+  "title": "GetV1CustomVoicesAmNarratorResponse",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/allmodels-openapi-generated.yml#/components/schemas/GetV1CustomVoicesAmNarratorResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The cloned voice ID."
+    },
+    "voices": {
+      "type": "array",
+      "description": "Array containing model and provider status for the voice."
+    }
+  }
+}
