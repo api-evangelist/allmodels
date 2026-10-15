@@ -1,0 +1,31 @@
+aid: allmodels
+name: Allmodels
+description: 'Allmodels is a company surfaced via the API Evangelist harvest backlog (source: new-submission)
+  and added to the network as a stub for full-pipeline profiling.'
+url: https://raw.githubusercontent.com/api-evangelist/allmodels/refs/heads/main/apis.yml
+x-type: company
+x-source: harvest:new-submission
+x-tier: stub
+x-tier-reason: harvest
+specificationVersion: '0.20'
+created: '2026-10-15'
+modified: '2026-10-15'
+tags:
+- Company
+apis: []
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+common:
+- type: Website
+  url: https://allmodels.io
+- type: Documentation
+  url: https://allmodels.io/docs
+x-submission-notes: 'Unified TTS/STT/realtime voice API across providers; OpenAPI + AsyncAPI | Kin approved
+  listing 2026-10-15 (case-by-case: Resale/routing of other providers'' voice models (OpenRouter-style);
+  real OpenAPI+AsyncAPI, so a Kin call; root soft-200s)'
+x-submission-probe: root 200, docs 200, openapi.yaml 200 (357KB), soft-404 FAIL (unknown path 200 SPA
+  shell)
+x-submitted-by: moe@allmodels.io (apis.io/add, 2026-10-15)
