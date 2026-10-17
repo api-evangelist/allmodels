@@ -1,0 +1,137 @@
+openapi: 3.2.0
+info:
+  title: Allmodels API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 11 operation(s) read from 14 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Allmodels has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: -3
+    pages-with-code: 12
+    pages-read: 14
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://allmodels.io/docs/api-reference/models/listModels
+  - https://allmodels.io/docs/api-reference/voices/listVoices
+  - https://allmodels.io/docs/api-reference/health/healthCheck
+  - https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+  - https://allmodels.io/docs/api-reference/providers/listProviders
+  - https://allmodels.io/docs/api-reference/realtime/realtimeConnect
+  - https://allmodels.io/docs/api-reference/voices/createCustomVoice
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeSttStream
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeTtsStream
+  - https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+  - https://allmodels.io/docs
+  - https://allmodels.io/docs/errors
+  - https://allmodels.io/docs/authentication
+  - https://allmodels.io/docs/speech-to-text
+servers:
+- url: https://api.allmodels.io
+security:
+- bearer: []
+tags:
+- name: Allmodels API
+paths:
+  /v1/{v1id}:
+    get:
+      operationId: get_v1_v1id
+      tags:
+      - Allmodels API
+      summary: GET /v1/custom-voices
+      x-source: https://allmodels.io/docs/api-reference/voices/createCustomVoice
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: client_secret
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1V1IdResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl import { readFile, writeFile } from "node:fs/promises"; // Node.js 22+. Set ALLMODELS_API_KEY and use your own sample.wav. const form = new FormData(); form.set("file", new Blob([await readFile("sample.wav")], { type: "audio/wav" }), "sample.wav"); form.set("name", "narrator"); form.set("provider", "soniox"); form.set("consent", "true"); const response = await fetch("https://api.allmodels.io/'
+        collapsed_from: 7 example path(s) differing only at v1Id
+components:
+  schemas:
+    GetV1V1IdResponse:
+      type: object
+      properties:
+        model:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        voice:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type:
+              - string
+              - 'null'
+            category:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+            languages:
+              type: array
+              items: {}
+            scope:
+              type: object
+              properties:
+                type:
+                  type: string
+            status:
+              type: string
+            fee_credits:
+              type: integer
+            first_seen_at:
+              type: string
+              format: date-time
+            last_seen_at:
+              type: string
+              format: date-time
+        providers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              provider_model_id:
+                type: string
+              status:
+                type: string
+              failure_reason:
+                type:
+                - string
+                - 'null'
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

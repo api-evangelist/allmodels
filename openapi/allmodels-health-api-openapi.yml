@@ -1,0 +1,69 @@
+openapi: 3.2.0
+info:
+  title: Allmodels Health API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 11 operation(s) read from 14 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Allmodels has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: -3
+    pages-with-code: 12
+    pages-read: 14
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://allmodels.io/docs/api-reference/models/listModels
+  - https://allmodels.io/docs/api-reference/voices/listVoices
+  - https://allmodels.io/docs/api-reference/health/healthCheck
+  - https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+  - https://allmodels.io/docs/api-reference/providers/listProviders
+  - https://allmodels.io/docs/api-reference/realtime/realtimeConnect
+  - https://allmodels.io/docs/api-reference/voices/createCustomVoice
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeSttStream
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeTtsStream
+  - https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+  - https://allmodels.io/docs
+  - https://allmodels.io/docs/errors
+  - https://allmodels.io/docs/authentication
+  - https://allmodels.io/docs/speech-to-text
+servers:
+- url: https://api.allmodels.io
+security:
+- bearer: []
+tags:
+- name: Health
+paths:
+  /health:
+    get:
+      operationId: get_health
+      tags:
+      - Health
+      summary: GET /health
+      x-source: https://allmodels.io/docs/api-reference/health/healthCheck
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHealthResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl const response = await fetch("https://api.allmodels.io/health"); if (!response.ok) throw new Error(`AllModels request failed: ${response.status}`); console.log(await response.json()); import requests response = requests.get( "https://api.allmodels.io/health", timeout=30, ) response.raise_for_status() print(response.json()) curl "https://api.allmodels.io/health" 200 { "ok": true, "commit": "01'
+components:
+  schemas:
+    GetHealthResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        commit:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

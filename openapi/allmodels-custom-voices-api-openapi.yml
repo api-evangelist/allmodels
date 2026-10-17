@@ -1,0 +1,150 @@
+openapi: 3.2.0
+info:
+  title: Allmodels Custom Voices API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 11 operation(s) read from 14 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Allmodels has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: -3
+    pages-with-code: 12
+    pages-read: 14
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://allmodels.io/docs/api-reference/models/listModels
+  - https://allmodels.io/docs/api-reference/voices/listVoices
+  - https://allmodels.io/docs/api-reference/health/healthCheck
+  - https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+  - https://allmodels.io/docs/api-reference/providers/listProviders
+  - https://allmodels.io/docs/api-reference/realtime/realtimeConnect
+  - https://allmodels.io/docs/api-reference/voices/createCustomVoice
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeSttStream
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeTtsStream
+  - https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+  - https://allmodels.io/docs
+  - https://allmodels.io/docs/errors
+  - https://allmodels.io/docs/authentication
+  - https://allmodels.io/docs/speech-to-text
+servers:
+- url: https://api.allmodels.io
+security:
+- bearer: []
+tags:
+- name: Custom Voices
+paths:
+  /v1/custom-voices:
+    post:
+      operationId: post_v1_custom_voices
+      tags:
+      - Custom Voices
+      summary: POST /v1/custom-voices
+      x-source: https://allmodels.io/docs/api-reference/voices/createCustomVoice
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CustomVoicesResponse'
+      x-evidence:
+        kind: code-example
+        language: python
+        snippet: 'requests.post( "https://api.allmodels.io/v1/custom-voices", headers={"Authorization": f"Bearer {os.environ[''ALLMODELS_API_KEY'']}"}, files={"file": ("sample.wav", audio, "audio/wav")'
+  /v1/custom-voices/AM:@narrator:
+    get:
+      operationId: get_v1_custom_voices_AM_narrator
+      tags:
+      - Custom Voices
+      summary: Get one cloned voice
+      x-source: https://allmodels.io/docs/api-reference/voices/createCustomVoice
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1CustomVoicesAmNarratorResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetV1CustomVoicesAmNarratorResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The cloned voice ID.
+        voices:
+          type: array
+          description: Array containing model and provider status for the voice.
+    PostV1CustomVoicesResponse:
+      type: object
+      properties:
+        model:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        voice:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type:
+              - string
+              - 'null'
+            category:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+            languages:
+              type: array
+              items: {}
+            scope:
+              type: object
+              properties:
+                type:
+                  type: string
+            status:
+              type: string
+            fee_credits:
+              type: integer
+            first_seen_at:
+              type: string
+              format: date-time
+            last_seen_at:
+              type: string
+              format: date-time
+        providers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              provider_model_id:
+                type: string
+              status:
+                type: string
+              failure_reason:
+                type:
+                - string
+                - 'null'
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

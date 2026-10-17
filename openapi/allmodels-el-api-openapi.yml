@@ -1,0 +1,100 @@
+openapi: 3.2.0
+info:
+  title: Allmodels El API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 11 operation(s) read from 14 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Allmodels has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: -3
+    pages-with-code: 12
+    pages-read: 14
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://allmodels.io/docs/api-reference/models/listModels
+  - https://allmodels.io/docs/api-reference/voices/listVoices
+  - https://allmodels.io/docs/api-reference/health/healthCheck
+  - https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+  - https://allmodels.io/docs/api-reference/providers/listProviders
+  - https://allmodels.io/docs/api-reference/realtime/realtimeConnect
+  - https://allmodels.io/docs/api-reference/voices/createCustomVoice
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeSttStream
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeTtsStream
+  - https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+  - https://allmodels.io/docs
+  - https://allmodels.io/docs/errors
+  - https://allmodels.io/docs/authentication
+  - https://allmodels.io/docs/speech-to-text
+servers:
+- url: https://api.allmodels.io
+security:
+- bearer: []
+tags:
+- name: El
+paths:
+  /el/v1/convai/conversation:
+    get:
+      operationId: get_el_v1_convai_conversation
+      tags:
+      - El
+      summary: GET /el/v1/convai/conversation
+      x-source: https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+      parameters:
+      - name: agent_id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: conversation_signature
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl import { readFile } from "node:fs/promises"; import WebSocket from "ws"; const audioChunk = await readFile("chunk.pcm"); const ws = new WebSocket("wss://api.allmodels.io/el/v1/convai/conversation?conversation_signature=$CONVERSATION_SIGNATURE&agent_id=$SPEECH_ENGINE_ID"); ws.on("open", () => { ws.send(JSON.stringify({ user_audio_chunk: audioChunk.toString("base64") })); }); ws.on("message", ('
+  /el/v1/speech-to-text:
+    post:
+      operationId: post_el_v1_speech_to_text
+      tags:
+      - El
+      summary: 'Speech to text : transcribe uploaded audio with POST /el/v1/speech-to-text'
+      description: Transcribe uploaded audio.
+      x-source: https://allmodels.io/docs
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /el/v1/text-to-speech/{voiceId}:
+    post:
+      operationId: post_el_v1_text_to_speech_voiceId
+      tags:
+      - El
+      summary: 'Text to speech : generate audio with POST /el/v1/text-to-speech/{voice_id}'
+      description: Generate audio for a given voice ID.
+      x-source: https://allmodels.io/docs
+      parameters:
+      - name: voiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

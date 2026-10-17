@@ -79,16 +79,16 @@ common:
   url: https://allmodels.io/docs
 
 apis:
-- aid: allmodels:allmodels-api
-  name: Allmodels API
-  description: 'Allmodels API as documented publicly: 11 operations. Contract generated from the documentation by API Evangelist (2026-10-15);
-    not the provider''s own document.'
+- aid: allmodels:allmodels-account-api
+  name: Allmodels Account API
+  description: The Account API from Allmodels — 1 operation(s) for account.
   humanURL: https://allmodels.io/docs/api-reference/models/listModels
   baseURL: https://api.allmodels.io
+  tags:
+  - Account
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/allmodels-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/allmodels-account-api-openapi.yml
   - type: JSONSchema
     url: json-schema/allmodels-get-v1-v1-id-response-schema.json
   - type: JSONSchema
@@ -101,7 +101,138 @@ apis:
     url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
   - type: JSONSchema
     url: json-schema/allmodels-get-health-response-schema.json
-
+- aid: allmodels:allmodels-allmodels-api-api
+  name: Allmodels Allmodels API
+  description: The Allmodels API API from Allmodels — 1 operation(s) for allmodels api.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - Allmodels API
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-allmodels-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+- aid: allmodels:allmodels-custom-voices-api
+  name: Allmodels Custom Voices API
+  description: The Custom Voices API from Allmodels — 2 operation(s) for custom voices.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - Custom Voices
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-custom-voices-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+- aid: allmodels:allmodels-el-api
+  name: Allmodels El API
+  description: The El API from Allmodels — 3 operation(s) for el.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - El
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-el-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+- aid: allmodels:allmodels-health-api
+  name: Allmodels Health API
+  description: The Health API from Allmodels — 1 operation(s) for health.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-health-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+- aid: allmodels:allmodels-oai-api
+  name: Allmodels Oai API
+  description: The Oai API from Allmodels — 1 operation(s) for oai.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - Oai
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-oai-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
+- aid: allmodels:allmodels-realtime-api
+  name: Allmodels Realtime API
+  description: The Realtime API from Allmodels — 1 operation(s) for realtime.
+  humanURL: https://allmodels.io/docs/api-reference/models/listModels
+  baseURL: https://api.allmodels.io
+  tags:
+  - Realtime
+  properties:
+  - type: OpenAPI
+    url: openapi/allmodels-realtime-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-v1-custom-voices-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-post-oai-audio-audioid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-v1-custom-voices-am-narrator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/allmodels-get-health-response-schema.json
 x-submission-notes: 'Unified TTS/STT/realtime voice API across providers; OpenAPI + AsyncAPI | Kin approved listing 2026-10-15 (case-by-case:
   Resale/routing of other providers'' voice models (OpenRouter-style); real OpenAPI+AsyncAPI, so a Kin call; root soft-200s)'
 

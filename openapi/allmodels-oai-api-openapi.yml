@@ -1,0 +1,170 @@
+openapi: 3.2.0
+info:
+  title: Allmodels Oai API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 11 operation(s) read from 14 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Allmodels has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: -3
+    pages-with-code: 12
+    pages-read: 14
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://allmodels.io/docs/api-reference/models/listModels
+  - https://allmodels.io/docs/api-reference/voices/listVoices
+  - https://allmodels.io/docs/api-reference/health/healthCheck
+  - https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+  - https://allmodels.io/docs/api-reference/providers/listProviders
+  - https://allmodels.io/docs/api-reference/realtime/realtimeConnect
+  - https://allmodels.io/docs/api-reference/voices/createCustomVoice
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeSttStream
+  - https://allmodels.io/docs/api-reference/native-tts/stt/nativeTtsStream
+  - https://allmodels.io/docs/api-reference/elevenlabs-sdk/speechEngineConversation
+  - https://allmodels.io/docs
+  - https://allmodels.io/docs/errors
+  - https://allmodels.io/docs/authentication
+  - https://allmodels.io/docs/speech-to-text
+servers:
+- url: https://api.allmodels.io
+security:
+- bearer: []
+tags:
+- name: Oai
+paths:
+  /oai/audio/{audioid}:
+    get:
+      operationId: get_oai_audio_audioid
+      tags:
+      - Oai
+      summary: GET /oai/audio/speech
+      x-source: https://allmodels.io/docs
+      parameters:
+      - name: audioid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl import { writeFile } from "node:fs/promises"; const response = await fetch("https://api.allmodels.io/oai/audio/speech", { method: "POST", headers: { Authorization: `Bearer ${process.env.ALLMODELS_API_KEY}`, "Content-Type": "application/json", }, body: JSON.stringify({ "model": "elevenlabs/eleven_flash_v2_5", "voice": "21m00Tcm4TlvDq8ikWAM", "input": "Hello from AllModels", "response_format": '
+        collapsed_from: 2 example path(s) differing only at audioId
+    post:
+      operationId: post_oai_audio_audioid
+      tags:
+      - Oai
+      summary: POST /oai/audio/{audioid}
+      description: Generates speech with the official OpenAI SDK. Set the client's base URL to https://api.allmodels.io/oai and use your AllModels API key.
+      x-source: https://allmodels.io/docs/api-reference/openai-sdk/openAiSpeech
+      parameters:
+      - name: audioid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: provider_order
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Comma-separated or repeated provider IDs in preferred order.
+      - name: provider_only
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Comma-separated or repeated provider IDs. Only these providers may serve the request.
+      - name: provider_ignore
+        in: query
+        required: false
+        schema:
+          type: array
+        description: Comma-separated or repeated provider IDs that must not serve the request.
+      - name: allow_fallbacks
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Set to false to prevent fallback to another provider.
+      - name: provider_options
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Provider-specific options in bracket notation, such as provider_options[encoding]=linear16.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOaiAudioAudioidRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOaiAudioAudioidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at audioId
+components:
+  schemas:
+    PostOaiAudioAudioidRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model identifier, optionally provider-prefixed.
+        voice:
+          type: string
+          description: Voice identifier.
+        input:
+          type: string
+          description: Text to synthesize.
+        response_format:
+          type: string
+          description: Desired audio format, e.g., mp3.
+        stream_format:
+          type: string
+          description: Use "audio" for audio bytes or "sse" for OpenAI speech events.
+      required:
+      - model
+      - voice
+      - input
+    PostOaiAudioAudioidResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: Audio bytes of the generated speech.
+        '400':
+          type: string
+          description: Error response.
+        '401':
+          type: string
+          description: Error response.
+        '402':
+          type: string
+          description: Error response.
+        '403':
+          type: string
+          description: Error response.
+        '422':
+          type: string
+          description: Error response.
+        '502':
+          type: string
+          description: Error response.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
