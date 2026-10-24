@@ -25,6 +25,12 @@ modified: '2026-10-15'
 
 tags:
 - Company
+- Voice AI
+- Text-to-Speech
+- Speech-to-Text
+- Real-Time
+tags_raw:
+- Company
 - VoiceAI
 - TextToSpeech
 - SpeechToText
@@ -217,6 +223,8 @@ apis:
   humanURL: https://allmodels.io/docs/api-reference/models/listModels
   baseURL: https://api.allmodels.io
   tags:
+  - Real-Time
+  tags_raw:
   - Realtime
   properties:
   - type: OpenAPI

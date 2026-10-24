@@ -16,3 +16,22 @@ plans:
   price: 5.5
   description: You are charged the exact amount the downstream provider costs for your request, plus 5.5%.
 docs: https://allmodels.io/pricing
+x-canonical:
+  generated: '2026-10-23'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Pay as you Go
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
